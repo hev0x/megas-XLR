@@ -1,2 +1,1 @@
-# RandomExploits
-Exploit for Random CVE's
+# Random Things 
