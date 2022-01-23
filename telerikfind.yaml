@@ -1,0 +1,24 @@
+id: telerik-deserialization-rce
+
+info:
+  name: Telerik
+  author: h3v0x
+  severity: critical
+  tags: rce
+
+requests:
+  - method: GET
+    path:
+      - '{{BaseURL}}/Telerik.Web.UI.WebResource.axd?type=rau'
+    headers:
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:55.0) Gecko/20100101 Firefox/55
+    matchers-condition: and
+    matchers:
+      - type: word
+        words:
+          - RadAsyncUpload
+        part: body
+      - type: status
+        status:
+          - 200
+
